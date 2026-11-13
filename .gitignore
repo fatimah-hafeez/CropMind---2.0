@@ -1,0 +1,39 @@
+# Secrets: never commit these
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+kaggle.json
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Datasets (share through Kaggle, not Git)
+data/
+dataset/
+datasets/
+
+# Trained models and training output (share through Kaggle)
+*.h5
+*.keras
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.ckpt
+checkpoints/
+
+# Python and notebook cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Editor and system files
+.vscode/
+.DS_Store
+Thumbs.db
