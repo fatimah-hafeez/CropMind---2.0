@@ -6,6 +6,7 @@
 *.pem
 secrets/
 kaggle.json
+.streamlit/secrets.toml
 
 # Virtual environments
 .venv/
