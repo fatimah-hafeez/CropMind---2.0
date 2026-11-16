@@ -107,11 +107,18 @@ class CropMindApp:
         image = None
         symptoms = None
         if mode == IMAGE_MODE:
-            image = st.file_uploader("Photo of the crop or leaf", key=f"image_{key}")
+            image = st.file_uploader(
+                "Photo of the crop or leaf",
+                key=f"image_{key}",
+                on_change=self._clear_outcome,
+            )
             st.caption(FORMATS_NOTE)
         else:
             symptoms = st.text_area(
-                "Describe the symptoms you see", height=150, key=f"symptoms_{key}"
+                "Describe the symptoms you see",
+                height=150,
+                key=f"symptoms_{key}",
+                on_change=self._clear_outcome,
             )
 
         # Element 5: submit button. The click is handled below the status area.
@@ -156,6 +163,6 @@ class CropMindApp:
             st.rerun()
 
     def _clear_outcome(self):
-        """Forget the last result when the mode or the crop changes."""
+        """Forget the last result when the mode, crop, photo or description changes."""
         st.session_state["result"] = None
         st.session_state["error"] = None
