@@ -22,6 +22,12 @@ STATUS_READY = "Choose a crop, add your photo or description, and press Submit."
 STATUS_DONE = "The assessment is complete."
 STATUS_FAILED = "The assessment could not be completed."
 
+# Progress messages while an assessment is running.
+STATUS_CHECKING_IMAGE = "Checking your photo."
+STATUS_ANALYSING_IMAGE = "Analysing your photo. Please wait."
+STATUS_CHECKING_TEXT = "Checking your description."
+STATUS_ANALYSING_TEXT = "Analysing your description. Please wait."
+
 
 class CropMindApp:
     """The main controller. It connects the screen to the two services."""
@@ -32,25 +38,31 @@ class CropMindApp:
         self.validator = validator or InputValidator()
         self.presenter = presenter or ResultPresenter()
 
-    def assess(self, mode, crop_choice, image=None, symptoms=None):
+    def assess(self, mode, crop_choice, image=None, symptoms=None, report=None):
         """Run one assessment.
 
         Returns (result, error_message). One of the two is always None.
         Only one route runs: the image service or the text service.
+        report is an optional function that receives each progress message.
         """
+        report = report or (lambda message: None)
         try:
             crop = CROP_CHOICES[crop_choice]
 
             if mode == IMAGE_MODE:
+                report(STATUS_CHECKING_IMAGE)
                 message = self.validator.check_image(image)
                 if message:
                     return None, message
+                report(STATUS_ANALYSING_IMAGE)
                 return self.image_service.predict(image, crop), None
 
             if mode == TEXT_MODE:
+                report(STATUS_CHECKING_TEXT)
                 message = self.validator.check_text(symptoms)
                 if message:
                     return None, message
+                report(STATUS_ANALYSING_TEXT)
                 return self.text_service.analyse(symptoms, crop), None
 
             raise ValueError(f"Unknown mode: {mode}")
@@ -110,7 +122,13 @@ class CropMindApp:
         status_area = st.empty()
 
         if submitted:
-            result, error = self.assess(mode, crop_choice, image=image, symptoms=symptoms)
+            result, error = self.assess(
+                mode,
+                crop_choice,
+                image=image,
+                symptoms=symptoms,
+                report=status_area.write,
+            )
             state["result"] = result
             state["error"] = error
 
