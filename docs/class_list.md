@@ -40,17 +40,18 @@ Agreed on 14 November 2026 by the group leader. Any change to this list needs th
 | 18 | Wheat | Wheat_Black_Rust | Black Rust |
 | 19 | Wheat | Wheat_Blast | Blast |
 | 20 | Wheat | Wheat_Brown_Rust | Brown Rust |
-| 21 | Wheat | Wheat_Common_Root_Rot | Common Root Rot |
-| 22 | Wheat | Wheat_Fusarium_Head_Blight | Fusarium Head Blight |
-| 23 | Wheat | Wheat_Healthy | Healthy |
-| 24 | Wheat | Wheat_Leaf_Blight | Leaf Blight |
-| 25 | Wheat | Wheat_Mildew | Mildew |
-| 26 | Wheat | Wheat_Septoria | Septoria |
+| 21 | Wheat | Wheat_Fusarium_Head_Blight | Fusarium Head Blight |
+| 22 | Wheat | Wheat_Healthy | Healthy |
+| 23 | Wheat | Wheat_Leaf_Blight | Leaf Blight |
+| 24 | Wheat | Wheat_Mildew | Mildew |
+| 25 | Wheat | Wheat_Septoria | Septoria |
+| 26 | Wheat | Wheat_Yellow_Rust | Yellow Rust |
 
 The index is the position used by the image module. It follows the order above (crop, then label), and it is the same order as in the earlier working files.
 
 ## Notes
 
+- **Revision (18 November 2026):** `Wheat_Yellow_Rust` replaces `Wheat_Common_Root_Rot`, because most Common Root Rot images in the source dataset were not wheat. The class count stays at 9 per crop and 27 in total. The wheat labels are kept in alphabetical order, which is the order the model uses.
 - **Spelling:** `Leaf_Redding` keeps the spelling used by the dataset authors, so that the report matches the source.
 - **Disease or pest:** Cotton Leaf Hopper Jassids (insects) and Sugarcane Mites are pests rather than diseases. The report and the screen say "disease or pest" where they describe the classes.
 - **Healthy class:** the healthy class is a normal class. A healthy match is shown as Healthy for the selected crop.
