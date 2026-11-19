@@ -37,12 +37,12 @@ LABELS_BY_CROP = {
         "Wheat_Black_Rust",
         "Wheat_Blast",
         "Wheat_Brown_Rust",
-        "Wheat_Common_Root_Rot",
         "Wheat_Fusarium_Head_Blight",
         "Wheat_Healthy",
         "Wheat_Leaf_Blight",
         "Wheat_Mildew",
         "Wheat_Septoria",
+        "Wheat_Yellow_Rust",
     ),
 }
 
