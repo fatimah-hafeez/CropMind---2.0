@@ -30,3 +30,7 @@ CropMind 2.0 is a Python-based application that gives a preliminary assessment o
 - Fatima Hafeez: group leader; datasets, image module and integration
 - Sabeela Anwer: application and interface
 - Areeba-tul-Islam: text module
+  
+## Licence
+
+Released under the MIT licence. See the LICENSE file. The licence covers the code only; the datasets and the model file are not included.
