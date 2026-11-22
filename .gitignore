@@ -27,6 +27,7 @@ datasets/
 *.tflite
 *.ckpt
 checkpoints/
+models/
 
 # Python and notebook cache
 __pycache__/
