@@ -51,4 +51,4 @@ TextDiagnosisService. The controller does not change when a service changes.
 
 app/stubs holds placeholder services and result classes. app/main.py does
 not use them. Four test files still import them, so they stay until those
-tests are moved.s
+tests are moved.
