@@ -7,9 +7,9 @@ from image_module.image_diagnosis_service import ImageDiagnosisService
 from results.errors import DiagnosisError
 from app.stubs.stub_text_service import StubTextService
 
-# TEMPORARY. For trying the screen with the stubs only.
-# Remove these two lines and the stubs when the real services arrive.
-# STUB_OUTCOME is one of: "disease_matched", "healthy_matched", "no_match".
+# TEMPORARY. For trying the text route with the stub only.
+# Remove these lines and the text stub when the real text service arrives.
+# STUB_OUTCOME (text stub only) is one of: "disease_matched", "healthy_matched", "no_match".
 STUB_OUTCOME = "disease_matched"
 # Set to True to simulate a service failure.
 STUB_FAIL = False
